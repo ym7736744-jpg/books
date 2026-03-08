@@ -1,0 +1,94 @@
+<section id="science-books-section">
+  <header>
+    <h1>Science Books</h1>
+    <p>Explore 100 science books</p>
+  </header>
+  <div id="science-books" class="books"></div>
+</section>
+<script>
+    async function loadScienceBooks() {
+  const container = document.getElementById("science-books");
+  let loaded = 0;
+  let page = 1;
+  const totalBooks = 100;
+
+  while (loaded < totalBooks) {
+    const res = await fetch(`https://openlibrary.org/search.json?q=science&language=eng&has_fulltext=true&page=${page}`);
+    const data = await res.json();
+    if (!data.docs || data.docs.length === 0) break;
+
+    for (const book of data.docs) {
+      if (loaded >= totalBooks) break;
+      if (!book.cover_i) continue;
+
+      const bookDiv = document.createElement("div");
+      bookDiv.className = "book";
+      bookDiv.innerHTML = `
+        <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" alt="${book.title}">
+        <p>${book.title}</p>
+      `;
+
+      container.appendChild(bookDiv);
+      loaded++;
+    }
+    page++;
+  }
+}
+
+loadScienceBooks();
+</script>
+<style>#science-books-section {
+  padding: 20px;
+  background: linear-gradient(90deg,#000000,rgb(11, 24, 49));
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+#science-books-section h1 {
+  text-align: center;
+  color: #ffcc00;
+  text-shadow: 0 0 10px #ffcc00;
+}
+
+#science-books-section p {
+  text-align: center;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+.books {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.book {
+  flex: 0 1 160px;
+  background-color: #0b1831;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.8);
+}
+
+.book img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.book p {
+  margin: 10px 5px;
+  font-size: 0.95rem;
+  color: #fff;
+  text-shadow: 0 0 5px #fff;
+  min-height: 40px;
+}
+</style>

@@ -1,0 +1,95 @@
+<section id="literature-books-section">
+  <header>
+    <h1>Literature Books</h1>
+    <p>Explore 100 literature books</p>
+  </header>
+  <div id="literature-books" class="books"></div>
+</section>
+<script>
+    async function loadLiteratureBooks() {
+  const container = document.getElementById("literature-books");
+  let loaded = 0;
+  let page = 1;
+  const totalBooks = 100;
+
+  while (loaded < totalBooks) {
+    const res = await fetch(`https://openlibrary.org/search.json?q=literature&language=eng&has_fulltext=true&page=${page}`);
+    const data = await res.json();
+    if (!data.docs || data.docs.length === 0) break;
+
+    for (const book of data.docs) {
+      if (loaded >= totalBooks) break;
+      if (!book.cover_i) continue;
+
+      const bookDiv = document.createElement("div");
+      bookDiv.className = "book";
+      bookDiv.innerHTML = `
+        <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" alt="${book.title}">
+        <p>${book.title}</p>
+      `;
+
+      container.appendChild(bookDiv);
+      loaded++;
+    }
+    page++;
+  }
+}
+
+loadLiteratureBooks();
+</script>
+<style>
+    #literature-books-section {
+  padding: 20px;
+  background: linear-gradient(90deg,#000000,rgb(11, 24, 49));
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+#literature-books-section h1 {
+  text-align: center;
+  color: #ffcc00;
+  text-shadow: 0 0 10px #ffcc00;
+}
+
+#literature-books-section p {
+  text-align: center;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+.books {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.book {
+  flex: 0 1 160px;
+  background-color: #0b1831;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.8);
+}
+
+.book img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.book p {
+  margin: 10px 5px;
+  font-size: 0.95rem;
+  color: #fff;
+  text-shadow: 0 0 5px #fff;
+  min-height: 40px;
+}
+</style>

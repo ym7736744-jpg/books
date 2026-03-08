@@ -1,0 +1,288 @@
+body{
+    background: linear-gradient(90deg,#000000,rgb(11, 24, 49));
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.hero-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    padding: 10px;
+}
+.hero-nav{ 
+ background: linear-gradient(90deg,#000000,rgb(6, 25, 57));
+height: 50px;
+border-bottom:2px solid #000000 ;
+border-radius: 5px;
+box-shadow: 2px 2px 2px rgb(7, 32, 74) ;
+padding-bottom: 12px;
+}
+.logo-in-hero{
+    color: white;
+    margin-left: 20px;
+}
+.search-in-hero{
+      outline: none;
+      border-radius: 5px;
+      border: 2px solid white;
+      height: 20px;
+      width: 150px;
+      padding-left:3px;
+      border: none;
+      background-color:white;
+         box-shadow: 0 10px 20px 0 rgb(7, 30, 70);
+    object-fit: cover;
+
+ 
+}
+.hero-div{
+    animation: animation-ul 3s ease-in-out;
+}
+@keyframes animation-ul{
+    from{
+        opacity: 0;
+        transform:translate3d(50px);
+    }
+    to{
+     color: rgb(0, 17, 255);
+        opacity: 1;
+        transform: translate3d(0);
+    }
+}
+.hero-div input{
+    margin-top: 3px;
+}
+.hero-div ul{
+    list-style: none;
+    margin-top: 10px;
+    display: flex;
+    margin-left: 100px;
+    gap: 60px;
+}
+.hero-div ul li a{
+    color: rgb(0, 17, 255);
+}
+.hero-div ul li a:hover{
+color: rgb(25, 37, 202);
+border-bottom:1.4px solid rgb(25, 37, 202); ;
+}
+.btn-in-hero{
+    background: none;
+    color: rgb(0, 102, 255);
+    width: 80px;
+    height: 35px;
+    border-radius: 14px;
+    border: 2px solid rgb(12, 34, 74);
+    margin-left: 20px;
+    cursor: pointer;
+    margin-bottom: 100px;
+}
+.btn-in-hero:hover{
+  color: rgb(255, 255, 255);
+    border: 2px solid rgb(31, 52, 92);
+    background: none;
+}
+.btn-in-hero-two{
+    background: linear-gradient(90deg,rgb(11, 43, 101),#101a41);
+        border: 2px solid rgb(14, 91, 233);
+        border-radius: 14px;
+        width: 100px;
+        height: 35px;
+        color: white;
+        cursor: pointer;
+}
+.btn-in-hero-two:hover{
+        background: linear-gradient(90deg,rgb(11, 30, 66),#101a41);
+        border: 2px solid rgb(8, 66, 175);
+                color: white;
+
+
+}
+a{
+    text-decoration: none;
+}
+body {
+    direction:rtl;
+     font-family:Arial; 
+    text-align:center;
+}
+#books{display:flex;
+ flex-wrap:wrap;
+ justify-content:center;
+margin-top:20px;
+}
+.book {
+    width: 180px;
+    margin: 10px;
+    flex-wrap: wrap;
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.4s, box-shadow 0.4s;
+    box-shadow: 
+        0 8px 12px rgba(66, 66, 66, 0.2),
+        0 16px 32px rgba(0,0,0,0.25),
+        0 24px 48px rgba(31, 28, 28, 0.2),
+        0 32px 64px rgba(24, 23, 23, 0.35);
+}
+
+/* تأثير عند التحويم */
+.book:hover {
+    transform: translateY(-12px) rotateX(5deg);
+    box-shadow: 
+        0 12px 24px rgba(0,0,0,0.25),
+        0 24px 48px rgba(0,0,0,0.35),
+        0 36px 72px rgba(0,0,0,0.4),
+        0 48px 96px rgba(0,0,0,0.45);
+}
+
+.book img{
+width:100%;
+border-radius:5px;
+}
+.book p{
+margin:5px 0; 
+font-size:14px;
+color: rgb(255, 255, 255);
+}
+#booksIntro {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    font-size: 17px;
+    line-height: 1.8;
+    text-align: justify;
+    border-radius: 15px;
+    box-shadow: 
+        0 4px 8px rgba(0, 54, 233, 0.765),
+        0 8px 16px rgba(0, 122, 221, 0.6),
+        0 16px 32px rgba(0, 179, 255, 0.7),
+        0 24px 48px rgba(0, 0, 0, 0.8);
+          background: linear-gradient(90deg,#000000,rgb(11, 24, 49));
+         color: white;
+    text-shadow: 
+        0 0 6px #1148de,
+        0 0 12px #00aaff,
+        0 0 20px #097e9e;
+}
+
+/* @media (max-width:768px){
+    .hero-div{
+        position: absolute;
+        top: 65px;
+        right: 0;
+        background: #111;
+        width: 100%;
+        flex-direction:column;
+        text-align: center;
+        display: none;
+    }
+} */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(90deg, #000000, rgb(11, 24, 49));
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  padding: 30px 20px;
+  background: linear-gradient(90deg, #000000, rgb(11, 24, 49));
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: #ffcc00;
+  text-shadow: 0 0 15px #ffcc00;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+/* روابط الأقسام */
+#sections-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+#sections-links a {
+  text-decoration: none;
+  padding: 12px 25px;
+  background-color: #0b1831; /* قريب من اللون الداكن للخلفية */
+  color: #00ccff;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+#sections-links a:hover {
+  background-color: #00ccff;
+  color: #0b1831;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+}
+
+/* حاوية عرض الكتب */
+#books-preview {
+  padding: 0 20px 40px 20px;
+}
+
+#books-preview h2 {
+  font-size: 2rem;
+  color: #ffcc00;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #ffcc00;
+}
+
+/* كروت الكتب */
+.books {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.book {
+  flex: 0 1 160px;
+  background-color: #0b1831; /* نفس اللون الداكن */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.book:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.8);
+}
+
+.book img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.book p {
+  margin: 10px 5px;
+  font-size: 0.95rem;
+  color: #fff;
+  text-shadow: 0 0 5px #fff;
+  min-height: 40px;
+}
